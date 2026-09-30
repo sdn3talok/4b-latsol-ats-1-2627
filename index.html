@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Soal ATS PAI &amp; Budi Pekerti Kelas IV 2026/2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbfaf6;--ink:#1d2b26;--mut:#5b6b64;--line:#cfd8d2;--acc:#0f5c4d;--key:#e6f2ec}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Atkinson Hyperlegible",system-ui,sans-serif}
+main{max-width:760px;margin:0 auto;padding:20px 16px 80px}
+header{border-bottom:3px double var(--acc);padding-bottom:14px;margin-bottom:18px;text-align:center}
+h1{font-size:1.25rem;margin:0 0 2px;color:var(--acc)}
+header p{margin:0;color:var(--mut);font-size:.95rem}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;margin:14px 0;font-size:.95rem}
+.meta span{border-bottom:1px dotted var(--mut);padding-bottom:2px}
+.bar{position:sticky;top:0;background:var(--bg);padding:8px 0;display:flex;gap:8px;flex-wrap:wrap;z-index:2;border-bottom:1px solid var(--line)}
+button{font:inherit;padding:8px 14px;border:1.5px solid var(--acc);background:#fff;color:var(--acc);border-radius:6px;cursor:pointer}
+button:hover,button:focus-visible{background:var(--acc);color:#fff;outline:none}
+h2{font-size:1.05rem;margin:28px 0 4px;color:var(--acc)}
+.ins{color:var(--mut);font-size:.92rem;margin:0 0 10px}
+.q{display:flex;gap:10px;margin:0 0 16px;break-inside:avoid}
+.n{min-width:1.9em;font-weight:700}
+.b{flex:1}
+.b p{margin:0 0 4px}
+ol.o{list-style:upper-alpha;margin:0;padding-left:1.4em}
+ol.o li{padding-left:.2em}
+.ar{font-family:Amiri,"Traditional Arabic",serif;font-size:1.5em;line-height:1.9;direction:rtl;unicode-bidi:isolate;display:inline-block}
+.line{border-bottom:1px dotted var(--mut);height:1.6em;margin-top:4px}
+.mt{display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
+.mt div{padding:4px 0}
+.key{display:none;background:var(--key);border-left:4px solid var(--acc);padding:3px 10px;font-size:.92rem;margin-top:5px}
+body.k .key{display:block}
+footer{margin-top:30px;color:var(--mut);font-size:.85rem;text-align:center}
+@media(max-width:560px){.meta,.mt{grid-template-columns:1fr}}
+@media print{.bar{display:none}body{font-size:12pt;background:#fff}main{max-width:none;padding:0}}
+.meta label{display:flex;gap:6px}.meta input{flex:1;min-width:0;border:0;border-bottom:1px dotted var(--mut);background:none;font:inherit;color:inherit}
+.tx{width:100%;font:inherit;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:#fff}
+select{font:inherit;padding:2px 4px}li label{cursor:pointer}
+.q.ok .b{border-left:4px solid #1f8a4c;padding-left:8px}.q.no .b{border-left:4px solid #b3382c;padding-left:8px}
+.fb{font-size:.9rem;font-weight:700}.q.ok .fb{color:#1f7a45}.q.no .fb{color:#b3382c}
+.res{background:var(--key);border:2px solid var(--acc);border-radius:8px;padding:12px 16px;margin-top:24px}
+details{margin:12px 0}summary{cursor:pointer;color:var(--acc);font-weight:700}
+.sc{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:.88rem}td,th{border:1px solid var(--line);padding:4px 6px;text-align:left;vertical-align:top}
+</style>
+</head>
+<body>
+<main>
+<header id=hd></header>
+<div class=meta><label>Nama <input id=nm></label><label>Kelas / No. Absen <input id=ka></label></div>
+<div class="bar"><button id=ac type=button>Acak soal</button><button id=as type=button>Urutan asli</button><button id=pk type=button>Periksa &amp; skor</button><button id=tk type=button>Tampilkan kunci</button><button id=pr type=button>Cetak / PDF</button></div>
+<details><summary>Tabel kisi-kisi</summary><p class=ins id=mo></p><div class=sc><table><thead><tr><th>No. Soal<th>Bentuk<th>Tujuan Pembelajaran<th>Level</tr></thead><tbody id=kt></tbody></table></div></details>
+<div id="soal"></div>
+<div id="hs"></div>
+<footer id=ft></footer>
+</main>
+<script>
+// DATA SOAL. Untuk kelas lain, cukup ganti isi file ini (META, KISI, PG, PGK, ISI, MJ, MJO, URA).
+const L="ABCDE";
+const PG=[
+["Surat yang menjelaskan tentang pertolongan dan kemenangan dari Allah Swt. adalah surat ....",["Al-Ikhlas","An-Nasr","Al-Kautsar","Al-Asr"],1],
+["Surat An-Nasr terdiri atas .... ayat.",["2","4","3","5"],2],
+["Ayat pertama surat An-Nasr yang benar adalah ....",["<span class=ar>إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ</span>","<span class=ar>قُلْ هُوَ اللَّهُ أَحَدٌ</span>","<span class=ar>إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ</span>","<span class=ar>وَالْعَصْرِ</span>"],0],
+["Arti dari <span class=ar>وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللَّهِ أَفْوَاجًا</span> adalah ....",["Bertasbihlah dengan memuji Tuhanmu","Apabila telah datang pertolongan Allah","Dan engkau melihat manusia masuk agama Allah berbondong-bondong","Dia Maha Penerima tobat"],2],
+["Pesan pokok surat An-Nasr adalah ....",["Setelah menang, kita boleh bersikap sombong","Setelah mendapat nikmat, kita bertasbih, memuji, dan memohon ampun kepada Allah","Kemenangan hanya karena kekuatan diri sendiri","Kita tidak perlu berdoa"],1],
+["Rina juara 1 lomba mewarnai. Sikap Rina yang sesuai dengan kandungan surat An-Nasr adalah ....",["Menyombongkan diri di depan teman","Mengejek peserta yang kalah","Mengucap alhamdulillah dan tetap rendah hati","Merasa tidak perlu bersyukur"],2],
+["Dzikir yang diucapkan ketika kita melakukan kesalahan adalah ....",["Astaghfirullahal 'adzim","Alhamdulillah","Allahu akbar","Bismillah"],0],
+["Al-Lathif berarti Allah Swt. Maha ....",["Kuat","Melihat","Lembut","Mendengar"],2],
+["Al-Ghaffar berarti Allah Swt. Maha ....",["Pengampun","Pemberi","Pengasih","Penyayang"],0],
+["Al-Wahhab berarti Allah Swt. Maha ....",["Membuka","Memberi","Mengetahui","Bijaksana"],1],
+["Meneladani asmaul husna Al-Fattah (Maha Pembuka) dapat dilakukan dengan ....",["Menyembunyikan cara mengerjakan soal","Membantu teman mencari jalan keluar dari kesulitannya","Membiarkan teman kesulitan","Marah kepada teman yang bertanya"],1],
+["Dika memaafkan adiknya yang tidak sengaja menumpahkan minumannya. Sikap Dika meneladani asmaul husna ....",["Al-Fattah","Al-Wahhab","Al-Bashir","Al-Ghaffar"],3],
+["Sinta selalu berbicara dengan lembut dan sopan kepada neneknya. Sikap Sinta meneladani asmaul husna ....",["Al-Lathif","Al-Ghaffar","Al-Qawiyy","Al-Mumit"],0],
+["Contoh perilaku yang meneladani Al-Wahhab adalah ....",["Menyimpan semua uang jajan sendiri","Meminta imbalan setiap membantu","Ikhlas memberi hadiah atau sedekah kepada teman yang membutuhkan","Pelit kepada tetangga"],2],
+["Akhlak terhadap keluarga adalah ....",["Sikap dan perilaku baik kepada anggota keluarga","Sikap acuh kepada saudara","Sikap hanya kepada teman","Kebiasaan bermain di luar rumah"],0],
+["Anggota keluarga inti terdiri atas ....",["Kakek, nenek, dan paman","Ayah, ibu, dan anak","Tetangga dan teman","Guru dan murid"],1],
+["Berikut yang termasuk akhlak baik terhadap keluarga adalah ....",["Membantu ibu membersihkan rumah","Membentak adik","Berbohong kepada ayah","Menolak perintah ibu dengan kasar"],0],
+["Perilaku yang menunjukkan kasih sayang kepada saudara adalah ....",["Merebut mainan adik","Berbagi mainan dengan adik","Mengejek kakak","Tidak mau menolong adik"],1],
+["Menurut QS Al-Isra' ayat 23, kita dilarang mengucapkan kata .... kepada orang tua.",["\"Ah\" (uf)","\"Baik, Bu\"","\"Insya Allah\"","\"Terima kasih\""],0],
+["Ayah Adi sedang sakit. Adi sedih, tetapi ia berdoa, yakin Allah memberi yang terbaik, dan membantu ibu merawat ayah. Tindakan Adi menunjukkan ....",["Berbaik sangka kepada Allah dan berakhlak baik kepada keluarga","Menyalahkan takdir Allah","Marah kepada ibu","Diam dan tidak peduli"],0]
+];
+const PGK=[
+["Pilih <b>semua</b> lafal yang termasuk surat An-Nasr!",["<span class=ar>إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ</span>","<span class=ar>وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللَّهِ أَفْوَاجًا</span>","<span class=ar>قُلْ أَعُوذُ بِرَبِّ النَّاسِ</span>","<span class=ar>فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ</span>","<span class=ar>إِنَّا أَعْطَيْنَاكَ الْكَوْثَرَ</span>"],[0,1,3]],
+["Pilih <b>semua</b> bacaan yang mengandung hukum idgham bighunnah!",["<span class=ar>مَنْ يَقُولُ</span>","<span class=ar>مِنْ مَالٍ</span>","<span class=ar>مِنْ رَبِّهِمْ</span>","<span class=ar>مِنْ لَدُنْهُ</span>","<span class=ar>مِنْ وَالٍ</span>"],[0,1,4]],
+["Perilaku yang sesuai dengan makna Al-Ghaffar dan Al-Wahhab adalah ....",["Menyimpan dendam kepada teman","Memaafkan teman yang meminta maaf","Memberi sebagian uang jajan kepada yang membutuhkan","Pelit kepada tetangga","Membagi bekal dengan ikhlas"],[1,2,4]],
+["Perilaku yang menunjukkan kasih sayang kepada keluarga adalah ....",["Merawat adik yang sedang sakit","Mengejek kakak","Membantu ayah mencuci motor","Berebut mainan dengan adik","Memijat nenek yang lelah"],[0,2,4]],
+["Kakak dan adik bertengkar karena berebut mainan. Tindakan yang tepat sebagai wujud kasih sayang adalah ....",["Melaporkan sambil mengejek","Kakak mengalah dan mengajak adik bermain bersama","Adik merebut mainan dengan paksa","Keduanya saling meminta maaf","Membiarkan pertengkaran berlanjut"],[1,3]]
+];
+const ISI=[
+["Hukum bacaan nun sukun pada <span class=ar>مِنْ رَبِّهِمْ</span> adalah ....","Idgham bilaghunnah",["bilaghunnah","bilaghunah","bi laghunnah"]],
+["Surat An-Nasr adalah surat ke-.... dalam Al-Qur'an.","110 (seratus sepuluh)",["110","seratus sepuluh"]],
+["Tono berbuat salah kepada temannya lalu meminta maaf. Sikap teman yang meneladani Al-Ghaffar adalah ....","Memaafkan Tono",["maaf"]],
+["Salah satu contoh akhlak baik adalah ....","Contoh: jujur / sopan / hormat / suka menolong",["jujur","sopan","hormat","menolong","santun","sabar","ramah","disiplin","rajin","sayang"]],
+["Salah satu contoh perilaku berakhlak baik kepada orang tua adalah ....","Contoh: patuh, mencium tangan, mendoakan",["patuh","cium","doa","menurut","hormat","sopan","membantu","menolong","taat"]]
+];
+const MJ=[
+["Peristiwa kemenangan kaum Muslim atas suku Quraisy",1],
+["Lafal tasbih",3],
+["Meneladani Al-Lathif",4],
+["Arti Al-Ghaffar",2],
+["Nama lain dari berbakti kepada orang tua",0]
+];
+const MJO=["Birrul walidain","Fathu Makkah","Maha Pengampun","Subhanallah","Berbicara dan bersikap lembut"];
+const URA=[
+["Tuliskan lafal surat An-Nasr ayat 1 sampai 3 dengan benar!","<span class=ar>إِذَا جَاءَ نَصْرُ اللَّهِ وَالْفَتْحُ ۝ وَرَأَيْتَ النَّاسَ يَدْخُلُونَ فِي دِينِ اللَّهِ أَفْوَاجًا ۝ فَسَبِّحْ بِحَمْدِ رَبِّكَ وَاسْتَغْفِرْهُ إِنَّهُ كَانَ تَوَّابًا</span>",3],
+["Sebutkan tiga ciri taubatan nasuha!","(1) Menyesali perbuatan salah; (2) berhenti melakukan kesalahan; (3) bertekad tidak mengulanginya. Jika berkaitan dengan orang lain, meminta maaf dan mengembalikan haknya.",3],
+["Bagaimana sikapmu jika temanmu berbuat salah lalu meminta maaf, sesuai asmaul husna Al-Ghaffar?","Memaafkan dengan tulus, tidak menyimpan dendam, dan tetap berteman baik.",2],
+["Sebutkan dua hikmah atau manfaat berbuat baik kepada keluarga!","Contoh: keluarga rukun dan damai; disayangi keluarga; mendapat pahala dan rida Allah.",2],
+["Sebutkan tiga contoh perilaku berakhlak baik terhadap keluarga!","Contoh: menghormati orang tua, menyayangi adik, membantu pekerjaan rumah, berbagi dengan saudara.",3]
+];
+
+const META={judul:"ASESMEN SUMATIF TENGAH SEMESTER GANJIL",mapel:"Pendidikan Agama Islam & Budi Pekerti",kelas:"IV",fase:"B",sekolah:"SD Negeri ................",tahun:"2026/2027",waktu:"± 90 menit",
+materi:["Q.S. An-Nasr dan hukum bacaan idgham bighunnah & bilaghunnah","Teladan mulia asmaul husna","Akhlak terhadap keluarga"]};
+// Kisi-kisi: satu baris per soal, urut sesuai PG, PGK, ISI, MJ, URA -> [tujuan pembelajaran, level kognitif]
+const KISI=[
+["Menyebutkan nama surat tentang pertolongan dan kemenangan","C1"],["Menyebutkan jumlah ayat surat An-Nasr","C1"],["Mengidentifikasi potongan ayat surat An-Nasr","C1"],["Menjelaskan arti sederhana potongan ayat An-Nasr","C1"],["Menyebutkan pesan pokok surat An-Nasr","C1"],["Menentukan perilaku sesuai kandungan surat An-Nasr","C3"],["Menentukan dzikir ketika melakukan kesalahan","C1"],["Mengidentifikasi makna asmaul husna (Al-Lathif)","C1"],["Mengidentifikasi makna asmaul husna (Al-Ghaffar)","C1"],["Mengidentifikasi makna asmaul husna (Al-Wahhab)","C1"],["Menentukan perilaku meneladani Al-Fattah","C3"],["Mengidentifikasi teladan asmaul husna dari narasi","C3"],["Mengidentifikasi teladan asmaul husna dari narasi","C3"],["Menganalisis perilaku meneladani Al-Wahhab","C2"],["Menjelaskan makna akhlak terhadap keluarga","C1"],["Menyebutkan anggota keluarga inti","C1"],["Mengidentifikasi contoh akhlak terhadap keluarga","C3"],["Menentukan perilaku kasih sayang kepada saudara","C2"],["Menentukan ucapan terlarang kepada orang tua (QS Al-Isra' 23)","C1"],["Menganalisis tindakan tepat: berbaik sangka kepada Allah dan akhlak kepada keluarga","C4"],
+["Mengidentifikasi lafal surat An-Nasr","C2"],["Mengidentifikasi bacaan idgham bighunnah","C3"],["Menentukan perilaku sesuai makna Al-Ghaffar dan Al-Wahhab","C2"],["Menentukan perilaku kasih sayang terhadap keluarga","C3"],["Menganalisis tindakan tepat wujud kasih sayang dan kepedulian","C4"],
+["Menganalisis hukum bacaan","C4"],["Menyebutkan urutan surat An-Nasr dalam Al-Qur'an","C1"],["Menerapkan perilaku sesuai Al-Ghaffar","C4"],["Menyebutkan contoh akhlak baik","C1"],["Menunjukkan contoh akhlak baik kepada orang tua","C2"],
+["Menyebutkan peristiwa kemenangan kaum Muslim atas Quraisy","C1"],["Menyebutkan lafal bacaan tasbih","C1"],["Memasangkan teladan asmaul husna Al-Lathif","C1"],["Menyebutkan arti asmaul husna","C1"],["Menyebutkan nama lain berbakti kepada orang tua","C1"],
+["Menuliskan lafal surat An-Nasr","C3"],["Menyebutkan ciri-ciri taubatan nasuha","C1"],["Menerapkan sikap sesuai Al-Ghaffar","C2"],["Menyebutkan hikmah berbuat baik kepada keluarga","C1"],["Menyebutkan contoh perilaku berakhlak baik terhadap keluarga","C2"]];
+</script>
+<script>
+const $=s=>document.querySelector(s),LB="ABCDE",P={pg:1,pgk:2,isi:2,mj:2};
+const sh=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const rg=n=>[...Array(n).keys()];
+let CH,MAP;
+function setK(on){document.body.classList.toggle('k',on);$('#tk').textContent=on?'Sembunyikan kunci':'Tampilkan kunci'}
+function render(shuf){
+ const f=shuf?sh:a=>a.slice();let n=0,base=0;const H=[],TL={};CH={};MAP={};
+ const sec=(t,i)=>H.push(`<h2>${t}</h2><p class=ins>${i}</p>`);
+ const wrap=(id,ty,body,k)=>{MAP[id]=++n;TL[id]=ty;return `<div class=q id=q${id}><div class=n>${n}.</div><div class=b>${body}<div class=key>Kunci: ${k}</div><div class=fb></div></div></div>`};
+ const opts=(id,ty,q,o)=>`<ol class=o>${o.map((k,p)=>`<li><label><input type=${ty} name=a${id} value=${p}> ${q[1][k]}</label></li>`).join('')}</ol>`;
+ sec('A. Pilihan Ganda','Pilih satu jawaban yang paling benar!');
+ f(rg(PG.length)).forEach(i=>{const q=PG[i],id=base+i,o=f(rg(q[1].length));CH[id]={t:'pg',a:o.indexOf(q[2])};H.push(wrap(id,'Pilihan Ganda',`<p>${q[0]}</p>`+opts(id,'radio',q,o),LB[CH[id].a]))});
+ base+=PG.length;
+ sec('B. Pilihan Ganda Kompleks','Pilih lebih dari satu jawaban yang benar!');
+ f(rg(PGK.length)).forEach(i=>{const q=PGK[i],id=base+i,o=f(rg(q[1].length)),a=q[2].map(k=>o.indexOf(k)).sort();CH[id]={t:'pgk',a};H.push(wrap(id,'PG Kompleks',`<p>${q[0]}</p>`+opts(id,'checkbox',q,o),a.map(x=>LB[x]).join(', ')))});
+ base+=PGK.length;
+ sec('C. Isian Singkat','Isilah dengan jawaban yang tepat!');
+ f(rg(ISI.length)).forEach(i=>{const q=ISI[i],id=base+i;CH[id]={t:'isi',a:q[2]};H.push(wrap(id,'Isian Singkat',`<p>${q[0]}</p><input class=tx name=a${id}>`,q[1]))});
+ base+=ISI.length;
+ sec('D. Menjodohkan','Pilih huruf di kolom kanan yang cocok dengan pernyataan di kolom kiri!');
+ const ro=f(rg(MJO.length));H.push('<div class=mt><div>');
+ f(rg(MJ.length)).forEach(i=>{const q=MJ[i],id=base+i,a=ro.indexOf(q[1]);CH[id]={t:'mj',a};H.push(wrap(id,'Menjodohkan',`<p>${q[0]} <select name=a${id}><option value="">–</option>${ro.map((_,p)=>`<option value=${p}>${LB[p]}</option>`).join('')}</select></p>`,LB[a]))});
+ H.push('</div><div>'+ro.map((k,p)=>`<div><b>${LB[p]}.</b> ${MJO[k]}</div>`).join('')+'</div></div>');
+ base+=MJ.length;
+ sec('E. Uraian','Jawablah dengan singkat dan jelas!');
+ f(rg(URA.length)).forEach(i=>{const q=URA[i],id=base+i;CH[id]={t:'ura'};H.push(wrap(id,'Uraian',`<p>${q[0]}</p><textarea class=tx rows=3 name=a${id}></textarea>`,`${q[1]} <i>(skor maks. ${q[2]})</i>`))});
+ $('#soal').innerHTML=H.join('');$('#hs').innerHTML='';setK(false);
+ $('#kt').innerHTML=Object.keys(MAP).sort((x,y)=>MAP[x]-MAP[y]).map(id=>`<tr><td>${MAP[id]}</td><td>${TL[id]}</td><td>${KISI[id][0]}</td><td>${KISI[id][1]}</td></tr>`).join('');
+}
+function periksa(){
+ let s=0,mx=0;const um=URA.reduce((t,q)=>t+q[2],0);
+ for(const id in CH){const c=CH[id];if(c.t=='ura')continue;
+  const el=$('#q'+id),x=[...el.querySelectorAll('[name=a'+id+']')];let ok=false;
+  if(c.t=='pg'){const r=x.find(e=>e.checked);ok=!!r&&+r.value==c.a}
+  else if(c.t=='pgk')ok=x.filter(e=>e.checked).map(e=>+e.value).sort().join()==c.a.join();
+  else if(c.t=='isi'){const v=x[0].value.toLowerCase();ok=!!v.trim()&&c.a.some(k=>v.includes(k))}
+  else ok=x[0].value!==''&&+x[0].value==c.a;
+  mx+=P[c.t];if(ok)s+=P[c.t];
+  el.classList.remove('ok','no');el.classList.add(ok?'ok':'no');
+  el.querySelector('.fb').textContent=ok?'Benar (+'+P[c.t]+')':'Belum tepat (0)';
+ }
+ setK(true);
+ $('#hs').innerHTML=`<div class=res><b>Skor otomatis: ${s} / ${mx}</b> · Nilai ${Math.round(s/mx*100)}<br>Bobot: PG 1, PG Kompleks 2 (harus lengkap), Isian 2, Menjodohkan 2. Soal uraian (maks. ${um}) dinilai guru dengan kunci di atas.</div>`;
+ $('#hs').scrollIntoView({behavior:'smooth'});
+}
+const m=META;document.title=m.judul+' '+m.mapel+' Kelas '+m.kelas;
+$('#hd').innerHTML=`<h1>${m.judul}</h1><p>${m.mapel} · Kelas ${m.kelas} (Fase ${m.fase})</p><p>${m.sekolah} · Tahun Pelajaran ${m.tahun} · Waktu ${m.waktu}</p>`;
+$('#mo').innerHTML='<b>Materi:</b> '+m.materi.join('; ');
+{const c=[PG,PGK,ISI,MJ,URA].map(a=>a.length);$('#ft').textContent=c.reduce((a,b)=>a+b)+' soal · '+c[0]+' PG, '+c[1]+' PG Kompleks, '+c[2]+' Isian Singkat, '+c[3]+' Menjodohkan, '+c[4]+' Uraian'}
+$('#ac').onclick=()=>render(true);$('#as').onclick=()=>render(false);
+$('#pk').onclick=periksa;$('#tk').onclick=()=>setK(!document.body.classList.contains('k'));$('#pr').onclick=()=>print();
+render(false);
+</script>
+</body>
+</html>
